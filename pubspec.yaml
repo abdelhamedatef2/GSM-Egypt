@@ -1,0 +1,28 @@
+name: vodafone_site_lookup
+description: Offline Vodafone Site ID -> coordinates lookup app.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  sqflite: ^2.4.1
+  path: ^1.9.0
+  path_provider: ^2.1.4
+  url_launcher: ^6.3.0
+  shared_preferences: ^2.3.2
+  share_plus: ^10.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/vodafone_sites.db
+    - assets/logo.png

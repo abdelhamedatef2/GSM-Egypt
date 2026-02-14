@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+# gradlew fallback: use Gradle Wrapper if present, otherwise use system 'gradle'.
+DIR="$(cd "$(dirname "$0")" && pwd)"
+WRAPPER_JAR="$DIR/gradle/wrapper/gradle-wrapper.jar"
+
+if [ -f "$WRAPPER_JAR" ]; then
+  JAVA_CMD="${JAVA_HOME:+$JAVA_HOME/bin/}java"
+  exec "$JAVA_CMD" -jar "$WRAPPER_JAR" "$@"
+fi
+
+if command -v gradle >/dev/null 2>&1; then
+  exec gradle "$@"
+fi
+
+echo "Neither gradle-wrapper.jar nor system 'gradle' found."
+exit 1
